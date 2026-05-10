@@ -431,7 +431,8 @@ def send_email(html_body: str, date_str: str):
     print(f"Sending to {len(recipients)} recipient(s)")
     response = resend.Emails.send({
         "from":    FROM_EMAIL,
-        "to":      recipients,
+        "to":      [FROM_EMAIL],
+        "bcc":     recipients,
         "subject": subject,
         "html":    html_body,
     })
